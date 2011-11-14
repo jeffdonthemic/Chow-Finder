@@ -8,7 +8,7 @@ class LocationController < ApplicationController
 
   end
 
-  def show
+  def show 
 
     client = authorize
     client.materialize("Location__c")

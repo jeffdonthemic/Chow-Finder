@@ -72,10 +72,6 @@ class FacilityController < ApplicationController
     fac.Saturday__c = params["Saturday__c"]
     fac.Sunday__c = params["Sunday__c"]    
     #fac.save
-    p '========= fac'
-    p fac
-    
-    client.update("Facility__c", params[:id], {"Name" => "Some new name"})
     
     redirect_to "/facility/"+params[:id]
     
