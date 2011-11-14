@@ -6,7 +6,7 @@
   <% end %>
   <%= content do %>
 	<p><b>Name:</b> <%= @facility.Name %></p>
-    <p><b>Location:</b> <%= @facility.Address__c %></p>
+    <p><b>Location:</b> <%= link_to @facility.Address__c, "http://maps.google.com/maps?q=#{CGI.escape(@facility.Complete_Address__c)}", 'rel'  => 'external'%></p>
 	<p><b>Hours:</b> <%= @facility.Hours__c %></p>
 	<p><b>Prices:</b> <%= @facility.Prices__c %></p>
 	<p><%= @facility.Description__c %></p>

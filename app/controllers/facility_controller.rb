@@ -38,9 +38,10 @@ class FacilityController < ApplicationController
     fac.Saturday__c = params["Saturday__c"]
     fac.Sunday__c = params["Sunday__c"]
     fac.Location__c = params[:id]
-    fac = fac.save
+    fac.Is_Active__c = true
+    id = fac.save
     
-    redirect_to "/facility/"+fac.Id
+    redirect_to "/facility/"+id
     
   end
   
@@ -58,6 +59,7 @@ class FacilityController < ApplicationController
     client.materialize("Facility__c")
     fac = Facility__c.find(params[:id])
     fac.Name = params["Name"]
+    fac.save
     fac.Address__c = params["Address__c"]
     fac.Hours__c = params["Hours__c"]
     fac.Prices__c = params["Prices__c"]
@@ -72,6 +74,9 @@ class FacilityController < ApplicationController
     #fac.save
     p '========= fac'
     p fac
+    
+    client.update("Facility__c", params[:id], {"Name" => "Some new name"})
+    
     redirect_to "/facility/"+params[:id]
     
   end

@@ -4,19 +4,16 @@ class LocationController < ApplicationController
   def index
 
     client = authorize
-    @locations = client.materialize("Location__c").all
+    @locations = client.query("select id, name, facilities__c from location__c order by name")
 
   end
 
   def show
 
     client = authorize
-
     client.materialize("Location__c")
     @location = Location__c.find(params[:id])
-
-    client.materialize("Facility__c")
-    @facilities = Facility__c.find_all_by_Location__c(params[:id])
+    @facilities = client.query("select id, name from facility__c where is_active__c = true and location__c = '"+params[:id]+"' order by name")
 
   end
     
