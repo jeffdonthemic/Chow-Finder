@@ -1,0 +1,65 @@
+<%= page do %>
+  <%= header do %>
+    <%= link_to "Back", '/location/'+params[:id], 'data-icon' => 'back', 'data-direction' => 'reverse' %>
+    <h1>New Chow for <%= @location.Name %></h1>
+  <% end %>
+  <%= content do %>
+
+	<%= form_for :facility, :url => "/facility/create/"+params[:id] do |f| %>
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="name">Name:</label>
+	  <input type="text" name="Name" id="name" value="" placeholder="The name of the chow location"/>
+    </div>
+	<p>Try and enter a physical address so that the chow location can be displayed on Google maps.
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="address">Address:</label>
+	  <input type="text" name="Address__c" id="address" value="" placeholder="Physical address"/>
+    </div>
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="hours">Hours:</label>
+	  <input type="text" name="Hours__c" id="hours" placeholder="Hours of operation"/>
+    </div>
+	<div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="prices">Prices:</label>
+      <textarea name="Prices__c" id="prices" placeholder="Any info on prices when paying cash?"></textarea>
+	</div>
+	<div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="description">Details:</label>
+      <textarea name="Description__c" id="description" placeholder="Any additional info?"></textarea>
+	</div>
+	<p>Are there any nights of the week when there is a special menu (e.g., Taco Tuesday)</p>
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="monday">Monday:</label>
+	  <input type="text" name="Monday__c" id="monday"/>
+    </div>
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="tuesday">Tuesday:</label>
+	  <input type="text" name="Tuesday__c" id="tuesday"/>
+    </div>
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="wednesday">Wednesday:</label>
+	  <input type="text" name="Wednesday__c" id="wednesday"/>
+    </div>
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="thursday">Thursday:</label>
+	  <input type="text" name="Thursday__c" id="thursday"/>
+    </div>
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="friday">Friday:</label>
+	  <input type="text" name="Friday__c" id="friday"/>
+    </div>
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="saturday">Saturday:</label>
+	  <input type="text" name="Saturday__c" id="saturday"/>
+    </div>
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="sunday">Sunday:</label>
+	  <input type="text" name="Sunday__c" id="sunday"/>
+    </div>
+	
+	<button type="submit" data-theme="b">Submit</submit>
+	<% end %>
+
+
+  <% end %>
+<% end %>

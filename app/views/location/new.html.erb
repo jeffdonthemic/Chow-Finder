@@ -1,0 +1,22 @@
+<%= page do %>
+  <%= header do %>
+    <%= link_to "Back", '/', 'data-icon' => 'back', 'data-direction' => 'reverse' %>
+    <h1>New Location</h1>
+  <% end %>
+  <%= content do %>
+
+	<%= form_for :facility, :url => "/location/create" do |f| %>
+	<p>Add a common description for a new location that will make it easy to find. For location try to use a state or some other grouping. For instance, enter <i>CA</i> for Camp Pendleton, <i>Okinawa, Japan</i> for Kadena Air Base, Okinawa, Japan or <i>Other</i> for USS Ronald Reagan.  </p>
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="name">Name:</label>
+	  <input type="text" name="Name" id="name" value=""/>
+    </div>	
+    <div data-role="fieldcontain" class="ui-hide-label">
+	  <label for="location">Location:</label>
+	  <input type="text" name="State__c" id="location"/>
+    </div>
+	<button type="submit" data-theme="b">Submit</submit>
+	<% end %>
+
+  <% end %>
+<% end %>

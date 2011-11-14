@@ -1,0 +1,18 @@
+<%= page do %>
+  <%= header do %>
+    <h1>Chow Finder</h1>
+  <% end %>
+  <%= content do %>
+	This is my home page
+  <% end %>
+  <div data-role="footer">		
+    <div data-role="navbar" data-iconpos="bottom">
+      <ul>
+        <li><a href="/location/favorites" data-role="button" data-icon="star">Favorites</a></li>
+        <li><a href="/location/index" data-role="button" data-icon="home">All Locations</a></li>
+        <li><a href="/location/states" data-role="button" data-icon="grid">By State</a></li>
+        <li><a href="/content/about" data-role="button" data-icon="info">About</a></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

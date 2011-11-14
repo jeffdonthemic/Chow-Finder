@@ -1,0 +1,26 @@
+<%= page do %>
+  <%= header do %>
+    <%= link_to "Back", root_url, 'data-icon' => 'back', 'data-direction' => 'reverse' %>
+    <h1>Chow for <%= @location.Name %></h1>
+  <% end %>
+  <%= content do %>
+	  <ul data-role='listview'>
+	    <% @facilities.each do |fac| %>
+	        <li>
+	          <%= link_to fac["Name"], "/facility/#{fac["Id"]}" %>
+	        </li>
+	    <% end %>
+	    <li data-theme='e' data-icon='plus'><%= link_to "Chow not listed? Add it here!", '/facility/new/'+@location.Id, "data-icon" => "plus" %></li>
+	  </ul>
+  <% end %>
+  <div data-role="footer">		
+    <div data-role="navbar" data-iconpos="bottom">
+      <ul>
+        <li><a href="/location/favorites" data-role="button" data-icon="star">Favorites</a></li>
+        <li><a href="/location/index" data-role="button" data-icon="home">All Locations</a></li>
+        <li><a href="/location/states" data-role="button" data-icon="grid">By State</a></li>
+        <li><a href="/content/about" data-role="button" data-icon="info">About</a></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,26 @@
+<%= page do %>
+  <%= header do %>
+    <h1>Chow Finder Locations</h1>
+  <% end %>
+
+  <%= content do %>
+    <ul data-role='listview'>
+      <% @locations.each do |location| %>
+          <li>
+            <%= link_to location["Name"]+' ('+location["Facilities__c"].to_i.to_s+')', "/location/#{location["Id"]}" %>
+          </li>
+      <% end %>
+      <li data-theme='e' data-icon='plus'><%= link_to "Location not listed? Add it here!", "/location/new", "data-icon" => "plus" %></li>
+    </ul>
+  <% end %>
+  <div data-role="footer">		
+    <div data-role="navbar" data-iconpos="bottom">
+      <ul>
+        <li><a href="/location/favorites" data-role="button" data-icon="star">Favorites</a></li>
+        <li><a href="/location/index" data-role="button" data-icon="home">All Locations</a></li>
+        <li><a href="/location/states" data-role="button" data-icon="grid">By State</a></li>
+        <li><a href="/content/about" data-role="button" data-icon="info">About</a></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

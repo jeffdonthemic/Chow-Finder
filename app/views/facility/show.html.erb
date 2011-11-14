@@ -1,0 +1,35 @@
+<%= page do %>
+  <%= header do %>
+    <%= link_to "Back", '/location/'+@facility.Location__c, 'data-icon' => 'back', 'data-direction' => 'reverse' %>
+    <h1><%= @facility.Name %></h1>
+    <%= link_to "Edit", '/facility/edit/'+params[:id] %>
+  <% end %>
+  <%= content do %>
+	<p><b>Name:</b> <%= @facility.Name %></p>
+    <p><b>Location:</b> <%= @facility.Address__c %></p>
+	<p><b>Hours:</b> <%= @facility.Hours__c %></p>
+	<p><b>Prices:</b> <%= @facility.Prices__c %></p>
+	<p><%= @facility.Description__c %></p>
+	<% if @facility.Has_Daily_Specials__c.eql?('Yes') %>
+		<p><b>Daily Specials?</b>
+			<% if @facility.Monday__c.try(:length) %><br/>&nbsp;&nbsp;<b>Monday:</b> <%= @facility.Monday__c %><% end %>
+			<% if @facility.Tuesday__c.try(:length) %><br/>&nbsp;&nbsp;<b>Tuesday:</b> <%= @facility.Tuesday__c %><% end %>
+			<% if @facility.Wednesday__c.try(:length) %><br/>&nbsp;&nbsp;<b>Wednesday:</b> <%= @facility.Wednesday__c %><% end %>
+			<% if @facility.Thursday__c.try(:length) %><br/>&nbsp;&nbsp;<b>Thursday:</b> <%= @facility.Thursday__c %><% end %>
+			<% if @facility.Friday__c.try(:length) %><br/>&nbsp;&nbsp;<b>Friday:</b> <%= @facility.Friday__c %><% end %>
+			<% if @facility.Saturday__c.try(:length) %><br/>&nbsp;&nbsp;<b>Saturday:</b> <%= @facility.Saturday__c %><% end %>
+			<% if @facility.Sunday__c.try(:length) %><br/>&nbsp;&nbsp;<b>Sunday:</b> <%= @facility.Sunday__c %><% end %>
+		</p>
+	<% end %>
+  <% end %>
+  <div data-role="footer">		
+    <div data-role="navbar" data-iconpos="bottom">
+      <ul>
+        <li><a href="/location/favorites" data-role="button" data-icon="star">Favorites</a></li>
+        <li><a href="/location/index" data-role="button" data-icon="home">All Locations</a></li>
+        <li><a href="/location/states" data-role="button" data-icon="grid">By State</a></li>
+        <li><a href="/content/about" data-role="button" data-icon="info">About</a></li>
+      </ul>
+    </div>
+  </div>
+<% end %>
