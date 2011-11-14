@@ -3,4 +3,4 @@ db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
-config/databasedotcom.yml
+config/initializers/development_settings.rb
