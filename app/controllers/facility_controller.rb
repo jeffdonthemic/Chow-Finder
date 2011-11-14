@@ -59,7 +59,6 @@ class FacilityController < ApplicationController
     client.materialize("Facility__c")
     fac = Facility__c.find(params[:id])
     fac.Name = params["Name"]
-    fac.save
     fac.Address__c = params["Address__c"]
     fac.Hours__c = params["Hours__c"]
     fac.Prices__c = params["Prices__c"]
