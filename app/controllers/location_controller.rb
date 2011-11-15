@@ -31,10 +31,16 @@ class LocationController < ApplicationController
   end
   
   def favorites
-    
-    client = authorize
-    @locations = client.query("select Id, Location__r.Id, Location__r.Name, Location__r.Facilities__c from 
-      Favorite_Location__c  where Chow_User__c = '"+cookies[:user_token]+"' order by Location__r.Name")
+    if !cookies[:user_token].nil?
+      client = authorize
+      @locations = client.query("select Id, Location__r.Id, Location__r.Name, Location__r.Facilities__c from 
+        Favorite_Location__c  where Chow_User__c = '"+cookies[:user_token]+"' order by Location__r.Name")
+        
+      if @locations.length.eql?(0)
+        @locations = nil
+      end
+        
+    end
     
   end
   

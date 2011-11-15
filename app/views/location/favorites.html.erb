@@ -4,7 +4,7 @@
   <% end %>
 
   <%= content do %>
-	<% if @locations.length == 0 %>
+	<% if @locations.nil? %>
 		You don't have any favorite locations.
 	<% else %>
 	    <ul data-role='listview'>
