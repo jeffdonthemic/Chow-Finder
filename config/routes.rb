@@ -3,19 +3,20 @@ ChowFinder::Application.routes.draw do
   get "content/home"
   get "content/about"
 
-  get "location/index"
+  get "location/index",             as: 'locations'
   get "location/favorites"
   get "location/states"    
-  get "location/new"
-  post "location/create"
+  get "location/new",               as: 'new'
+  post "location/create",           as: 'create'
   get "location/edit"
-  match "/location/:id"  => "location#show"
+  match "/location/:id",            to: "location#show", as: 'location'
+  match "/location/:id/favorite",   to: "location#favorite", as: 'favorite'  
 
-  match "facility/:id",         to: "facility#show", as: 'facility_show'
-  match "facility/new/:id",     to: "facility#new", as: 'facility_new'
-  match "facility/create/:id",  to: 'facility#create', as: 'facility_create'
-  match "facility/edit/:id",    to: "facility#edit", as: 'facility_edit'
-  match "facility/update/:id",  to: "facility#update", as: 'facility_update'
+  match "facility/:id",             to: "facility#show", as: 'facility_show'
+  match "facility/new/:id",         to: "facility#new", as: 'facility_new'
+  match "facility/create/:id",      to: "facility#create", as: 'facility_create'
+  match "facility/edit/:id",        to: "facility#edit", as: 'facility_edit'
+  match "facility/update/:id",      to: "facility#update", as: 'facility_update'
     
   root :to => 'content#home'
 

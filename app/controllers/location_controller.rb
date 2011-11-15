@@ -1,5 +1,4 @@
 class LocationController < ApplicationController
-  layout "mobile"
 
   def index
 
@@ -28,6 +27,39 @@ class LocationController < ApplicationController
     location = location.save
     
     redirect_to "/location/"+location.Id
+    
+  end
+  
+  def favorites
+    
+    client = authorize
+    @locations = client.query("select Id, Location__r.Id, Location__r.Name, Location__r.Facilities__c from 
+      Favorite_Location__c  where Chow_User__c = '"+cookies[:user_token]+"' order by Location__r.Name")
+    
+  end
+  
+  def favorite
+
+    client = authorize
+    
+    # if their is no cookie for the user, create one
+    if cookies[:user_token].nil?
+      client.materialize("Chow_User__c")
+      u = Chow_User__c.new
+      u.OwnerId = '005U0000000hi2M'
+      u = u.save  
+      #save the id in the cookie
+      cookies.permanent[:user_token] = u
+    end
+    
+    client.materialize("Favorite_Location__c")
+    fav = Favorite_Location__c.new
+    fav.Location__c = params[:id]
+    fav.Chow_User__c = cookies[:user_token]
+    fav.OwnerId = '005U0000000hi2M'
+    fav = fav.save
+
+    redirect_to "/location/"+params[:id]
     
   end
 

@@ -2,8 +2,19 @@
   <%= header do %>
     <h1>Favorites</h1>
   <% end %>
+
   <%= content do %>
-	This is my favorites page
+	<% if @locations.length == 0 %>
+		You don't have any favorite locations.
+	<% else %>
+	    <ul data-role='listview'>
+	      <% @locations.each do |location| %>
+	          <li>
+	            <%= link_to location["Location__r"]["Name"]+' ('+location["Location__r"]["Facilities__c"].to_i.to_s+')', location_path(location["Location__r"]["Id"]) %>
+	          </li>
+	      <% end %>
+	    </ul>
+	<% end %>
   <% end %>
   <div data-role="footer">		
     <div data-role="navbar" data-iconpos="bottom">

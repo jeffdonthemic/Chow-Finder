@@ -1,5 +1,4 @@
 class FacilityController < ApplicationController
-  layout "mobile"
 
   def show
     
@@ -71,6 +70,7 @@ class FacilityController < ApplicationController
     fac.Saturday__c = params["Saturday__c"]
     fac.Sunday__c = params["Sunday__c"]    
     #fac.save
+    #client.upsert("Facility__c", "Id", params[:id], {"Name" => "Some new name"})
     
     redirect_to "/facility/"+params[:id]
     

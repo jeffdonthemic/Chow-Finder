@@ -1,11 +1,11 @@
 <%= page do %>
   <%= header do %>
-    <%= link_to "Back", '/location/'+params[:id], 'data-icon' => 'back', 'data-direction' => 'reverse' %>
+    <%= link_to "Back", location_path(params[:id]), 'data-icon' => 'back', 'data-direction' => 'reverse' %>
     <h1>New Chow for <%= @location.Name %></h1>
   <% end %>
   <%= content do %>
 
-	<%= form_for :facility, :url => "/facility/create/"+params[:id] do |f| %>
+	<%= form_for :facility, :url => facility_create_path(params[:id]) do |f| %>
     <div data-role="fieldcontain" class="ui-hide-label">
 	  <label for="name">Name:</label>
 	  <input type="text" name="Name" id="name" value="" placeholder="The name of the chow location"/>
@@ -59,7 +59,6 @@
 	
 	<button type="submit" data-theme="b">Submit</submit>
 	<% end %>
-
 
   <% end %>
 <% end %>
