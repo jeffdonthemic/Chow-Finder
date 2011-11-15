@@ -24,9 +24,9 @@ class LocationController < ApplicationController
     location.Name = params["Name"]
     location.State__c = params["State__c"]
     location.OwnerId = '005U0000000hi2M'
-    location = location.save
+    id = location.save
     
-    redirect_to "/location/"+location.Id
+    redirect_to "/location/"+id
     
   end
   
