@@ -21,7 +21,6 @@ class LocationController < ApplicationController
   end
   
   def favorites
-    cookies.delete :user_token
     if !cookies[:user_token].nil?
       @locations = dbdc_client.query("select Id, Location__r.Id, Location__r.Name, Location__r.Facilities__c from 
         Favorite_Location__c  where Chow_User__c = '"+cookies[:user_token]+"' order by Location__r.Name")
