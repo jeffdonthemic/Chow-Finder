@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-gem 'databasedotcom'
+gem 'databasedotcom-rails'
 
 group :production do
   gem 'pg'

@@ -44,6 +44,8 @@ GEM
     databasedotcom (1.2.4)
       json
       multipart-post (~> 1.1)
+    databasedotcom-rails (1.0.0)
+      databasedotcom
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
@@ -118,7 +120,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.0)
-  databasedotcom
+  databasedotcom-rails
   jquery-rails
   pg
   rails (= 3.1.0)

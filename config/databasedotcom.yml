@@ -1,4 +1,5 @@
 client_id: ENV['DATABASEDOTCOM_CLIENT_ID']
 client_secret: ENV['DATABASEDOTCOM_CLIENT_SECRET']
-host: ENV['DATABASEDOTCOM_HOST']
+username: chowfinder@jeffdouglas.com
+password: 9KBe67dn2TLcxxvI3lJWp6uTC27ohhdj6fr
 debugging: ENV['DATABASEDOTCOM_DEBUGGING']
