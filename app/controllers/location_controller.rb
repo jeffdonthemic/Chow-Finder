@@ -29,8 +29,6 @@ class LocationController < ApplicationController
         @locations = nil
       end
     end
-    
-    @accounts = dbdc_client.query("select name, (select lastname from contacts) from account where id = '001U0000006pFOD'")
   end
   
   def favorite
